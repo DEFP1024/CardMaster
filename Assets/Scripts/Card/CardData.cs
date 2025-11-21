@@ -9,12 +9,11 @@ public class CardData : ScriptableObject, ICard
     [Tooltip("카드 타입")]
     [SerializeField] private CardType cardType;
     [Tooltip("카드 코스트")]
-    [Min(-1)]
+    [Min(0)]
     [SerializeField] private int cost;
     [Tooltip("카드 힘(공격력, 아머수치, 스킬 파워)")]
     [SerializeField] private int power;
     [Tooltip("카드 설명")]
-    [TextArea]
     [SerializeField] private string description;
 
 
