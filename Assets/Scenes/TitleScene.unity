@@ -281,7 +281,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1372787633}
+      - m_Target: {fileID: 5828141126989305713, guid: 0910456e64a3ad74f9d124a6efc35448, type: 3}
         m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
         m_MethodName: OnOption
         m_Mode: 1
@@ -1007,7 +1007,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1372787633}
+      - m_Target: {fileID: 5828141126989305713, guid: 0910456e64a3ad74f9d124a6efc35448, type: 3}
         m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
         m_MethodName: OnStartGame
         m_Mode: 1
@@ -1057,17 +1057,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1335699429}
   m_CullTransparentMesh: 1
---- !u!114 &1372787633 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5828141126989305713, guid: 0910456e64a3ad74f9d124a6efc35448, type: 3}
-  m_PrefabInstance: {fileID: 1923113546287617639}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0695d235f75f6b4bbae2dac0c2ed430, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SceneChanger
 --- !u!1 &1836716661
 GameObject:
   m_ObjectHideFlags: 0
