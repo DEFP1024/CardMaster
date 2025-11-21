@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class CardStockManager : Singleton<CardStockManager>
@@ -7,7 +8,11 @@ public class CardStockManager : Singleton<CardStockManager>
 
     [SerializeField] private int maxCard = 10;
 
-    private List<CardData> deck = new List<CardData>();
+    [SerializeField] private Transform poolParent;
+
+    private List<CardtestObj> deck = new List<CardtestObj>();
+
+    private GameObject cardPrefab;
 
     protected override void Awake()
     {
@@ -28,45 +33,59 @@ public class CardStockManager : Singleton<CardStockManager>
 
             for (int i = 0; i < maxCard; i++)
             {
-                deck.Add(card);
+                var inst = Instantiate(card, poolParent);
+                inst.gameObject.SetActive(false);
+                deck.Add(inst);
             }
         }
+
+        Debug.Log($"카드 풀 생성 완료. 총 인스턴스 수: {deck.Count}");
     }
 
-    public bool TryTakeCard(CardData target)
+    public CardtestObj TryTakeCard(CardtestObj target)
     {
         if (target == null)
-            return false;
+            return null;
 
-        for (int i = 0; i < deck.Count; i++)
+        foreach (var card in deck)
         {
-            if (deck[i] == target)
+            if (card.gameObject.activeSelf == false && card.Data == target.Data)
             {
-                deck.RemoveAt(i);
-                return true;
+                card.gameObject.SetActive (true);
+                return card;
             }
         }
 
-        return false;
+        return null;
     }
 
-    public void ReturnCard(CardData card)
+    public void ReturnCard(CardtestObj card)
     {
         if (card == null)
             return;
 
-        int currentCount = GetRemainCount(card);
-        if (currentCount >= 0) return;
+        card.transform.SetParent(poolParent, false);
+        card.gameObject.SetActive(false);
+        
+        //if (currentCount >= maxCard) return;
 
-        deck.Add(card);
+        //deck.Add(card);
     }
 
-    public int GetRemainCount(CardData card)
+    public int GetRemainCount(CardtestObj card)
     {
+
+        if (card == null)
+        {
+            return 0;
+        }
+
         int cnt = 0;
+
         foreach (var d in deck)
         {
-            if (d == card) cnt++;
+            if (d.gameObject.activeSelf == false && d.Data == card.Data)
+                cnt++;
         }    
 
         return cnt;

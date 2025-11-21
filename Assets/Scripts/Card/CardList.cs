@@ -4,5 +4,5 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "CardList", menuName = "Card System/Card List")]
 public class CardList : ScriptableObject
 {
-    public List<CardData> cards;
+    public List<CardtestObj> cards;
 }
