@@ -280,7 +280,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 240473558}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1372787633}
+        m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
+        m_MethodName: OnOption
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &240473558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -331,8 +343,9 @@ GameObject:
   - component: {fileID: 366662637}
   - component: {fileID: 366662636}
   - component: {fileID: 366662635}
+  - component: {fileID: 366662638}
   m_Layer: 5
-  m_Name: ExitButton
+  m_Name: QuitButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -401,7 +414,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 366662636}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 366662638}
+        m_TargetAssemblyTypeName: QuitButton, Assembly-CSharp
+        m_MethodName: OnQuit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &366662636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -440,6 +465,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 366662633}
   m_CullTransparentMesh: 1
+--- !u!114 &366662638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366662633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66aeb8adacfb5754e9b95a0899017583, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QuitButton
 --- !u!1 &433773810
 GameObject:
   m_ObjectHideFlags: 0
@@ -969,7 +1006,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1335699432}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1372787633}
+        m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
+        m_MethodName: OnStartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1335699432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1008,6 +1057,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1335699429}
   m_CullTransparentMesh: 1
+--- !u!114 &1372787633 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5828141126989305713, guid: 0910456e64a3ad74f9d124a6efc35448, type: 3}
+  m_PrefabInstance: {fileID: 1923113546287617639}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0695d235f75f6b4bbae2dac0c2ed430, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SceneChanger
 --- !u!1 &1836716661
 GameObject:
   m_ObjectHideFlags: 0
@@ -1224,6 +1284,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2123335805}
   m_CullTransparentMesh: 1
+--- !u!1001 &1923113546287617639
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5073661901470754330, guid: 0910456e64a3ad74f9d124a6efc35448, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 846.03314
+      objectReference: {fileID: 0}
+    - target: {fileID: 5073661901470754330, guid: 0910456e64a3ad74f9d124a6efc35448, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5073661901470754330, guid: 0910456e64a3ad74f9d124a6efc35448, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2166.7605
+      objectReference: {fileID: 0}
+    - target: {fileID: 5073661901470754330, guid: 0910456e64a3ad74f9d124a6efc35448, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5073661901470754330, guid: 0910456e64a3ad74f9d124a6efc35448, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5073661901470754330, guid: 0910456e64a3ad74f9d124a6efc35448, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5073661901470754330, guid: 0910456e64a3ad74f9d124a6efc35448, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5073661901470754330, guid: 0910456e64a3ad74f9d124a6efc35448, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5073661901470754330, guid: 0910456e64a3ad74f9d124a6efc35448, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5073661901470754330, guid: 0910456e64a3ad74f9d124a6efc35448, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7363567213332997666, guid: 0910456e64a3ad74f9d124a6efc35448, type: 3}
+      propertyPath: m_Name
+      value: SceneChanger
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0910456e64a3ad74f9d124a6efc35448, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1231,3 +1348,4 @@ SceneRoots:
   - {fileID: 1836716664}
   - {fileID: 768556259}
   - {fileID: 925602482}
+  - {fileID: 1923113546287617639}
