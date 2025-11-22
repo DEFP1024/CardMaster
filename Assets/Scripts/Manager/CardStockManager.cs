@@ -10,7 +10,7 @@ public class CardStockManager : Singleton<CardStockManager>
 
     [SerializeField] private Transform poolParent;
 
-    private List<CardtestObj> deck = new List<CardtestObj>();
+    private List<CardObj> deck = new List<CardObj>();
 
     private GameObject cardPrefab;
 
@@ -42,7 +42,7 @@ public class CardStockManager : Singleton<CardStockManager>
         Debug.Log($"카드 풀 생성 완료. 총 인스턴스 수: {deck.Count}");
     }
 
-    public CardtestObj TryTakeCard(CardtestObj target)
+    public CardObj TryTakeCard(CardObj target)
     {
         if (target == null)
             return null;
@@ -51,7 +51,6 @@ public class CardStockManager : Singleton<CardStockManager>
         {
             if (card.gameObject.activeSelf == false && card.Data == target.Data)
             {
-                card.gameObject.SetActive (true);
                 return card;
             }
         }
@@ -59,7 +58,7 @@ public class CardStockManager : Singleton<CardStockManager>
         return null;
     }
 
-    public void ReturnCard(CardtestObj card)
+    public void ReturnCard(CardObj card)
     {
         if (card == null)
             return;
@@ -72,7 +71,7 @@ public class CardStockManager : Singleton<CardStockManager>
         //deck.Add(card);
     }
 
-    public int GetRemainCount(CardtestObj card)
+    public int GetRemainCount(CardObj card)
     {
 
         if (card == null)

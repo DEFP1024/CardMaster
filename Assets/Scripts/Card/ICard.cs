@@ -9,6 +9,7 @@ public enum CardType
 
 public interface ICard
 {
+    public int ID { get; }
     public string Name { get; }
     public int Cost { get; }
     public int Power { get; }

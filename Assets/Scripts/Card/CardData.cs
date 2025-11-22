@@ -4,6 +4,8 @@ using UnityEngine;
 public class CardData : ScriptableObject, ICard
 {
     [Header("기본 정보")]
+    [Tooltip("고유 번호")]
+    [SerializeField] private int id;
     [Tooltip("카드 이름")]
     [SerializeField] private string cardName;
     [Tooltip("카드 타입")]
@@ -16,7 +18,7 @@ public class CardData : ScriptableObject, ICard
     [Tooltip("카드 설명")]
     [SerializeField] private string description;
 
-
+    public int ID => id;
 
     public string Name => cardName;
 
