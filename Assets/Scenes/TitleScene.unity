@@ -1009,7 +1009,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5828141126989305713, guid: 0910456e64a3ad74f9d124a6efc35448, type: 3}
         m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
-        m_MethodName: OnStartGame
+        m_MethodName: OnStage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1321,6 +1321,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5828141126989305713, guid: 0910456e64a3ad74f9d124a6efc35448, type: 3}
+      propertyPath: map
+      value: 
+      objectReference: {fileID: 799506972685948898, guid: 90dcc8a1c49966c4b8b58bf946b74d41, type: 3}
     - target: {fileID: 7363567213332997666, guid: 0910456e64a3ad74f9d124a6efc35448, type: 3}
       propertyPath: m_Name
       value: SceneChanger

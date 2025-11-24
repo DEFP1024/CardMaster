@@ -12,13 +12,16 @@ public enum NodeType
     Boss
 }
 
-public class MapGenerator : MonoBehaviour
+public class MapGenerator : Singleton<MapGenerator>
 {
     public int floorCount = 6;
+    public int nodeMinCount = 1;
     public int nodeMaxCount = 4;
+
     public GameObject nodePrefab;
     public GameObject linePrefab;
-
+    public GameObject parentObj;
+    
     public float floorX = 3f;
     public float nodedistance = 2f;
 
@@ -29,8 +32,13 @@ public class MapGenerator : MonoBehaviour
 
     private void Start()
     {
-        GenerateMap();
-        DrawMap();
+        if (floors == null || floors.Count == 0)
+        {
+            GenerateMap();
+            DrawMap();
+
+            SelectNode(floors[0][0]);
+        }
     }
 
     public void GenerateMap()
@@ -51,7 +59,7 @@ public class MapGenerator : MonoBehaviour
             if (i == 0 || i == floorCount - 1)
                 count = 1;
             else
-                count = Random.Range(1, nodeMaxCount + 1);
+                count = Random.Range(nodeMinCount, nodeMaxCount + 1);
 
             for (int j = 0; j < count; j++)
             {
@@ -61,7 +69,7 @@ public class MapGenerator : MonoBehaviour
                 float x = i * floorX;
                 float y = (j - (count - 1)/ 2f) * -nodedistance;
                 node.position = new Vector2 (x, y);
-
+               
                 if (i == 0)
                     node.type = NodeType.Start;
                 else if (i == floorCount - 1)
@@ -79,13 +87,12 @@ public class MapGenerator : MonoBehaviour
 
     private NodeType GetRandomNodeType()
     {
-        int rnd = Random.Range(0, 4);
+        int rnd = Random.Range(0, 10);
         switch (rnd)
         {
-            case 0: return NodeType.Enemy;
-            case 1: return NodeType.Shop;
-            case 2: return NodeType.Event;
-            case 3: return NodeType.Rest;
+            case 0: return NodeType.Shop;
+            case 1: return NodeType.Event;
+            case 2: return NodeType.Rest;
             default: return NodeType.Enemy;
         }
     }
@@ -140,6 +147,14 @@ public class MapGenerator : MonoBehaviour
                     AddWay(source, next);
                 }
             }
+
+            int extraLine = Random.Range(1, 3);
+            for (int t = 0; t < extraLine;  t++)
+            {
+                StageNode p = currentFloor[Random.Range(0, currentFloor.Count)];
+                StageNode n = nextFloor[Random.Range(0, nextFloor.Count)];
+                AddWay(p, n);
+            }
         }
 
         
@@ -163,10 +178,11 @@ public class MapGenerator : MonoBehaviour
         {
             foreach (StageNode node in floor)
             {
-                GameObject obj = Instantiate(nodePrefab, transform);
+                GameObject obj = Instantiate(nodePrefab, parentObj.transform);
                 RectTransform rect = obj.GetComponent<RectTransform>();
                 rect.anchoredPosition = node.position;
                 node.uiObj = obj;
+                obj.name = node.type.ToString();
 
                 MapNodeUI ui = obj.GetComponent<MapNodeUI>();
                 ui.Setup(this, node);
@@ -188,7 +204,7 @@ public class MapGenerator : MonoBehaviour
                     RectTransform rectB = next.uiObj.GetComponent<RectTransform>();
                     Vector2 posB = rectB.anchoredPosition;
 
-                    GameObject lineObj = Instantiate(linePrefab, transform);
+                    GameObject lineObj = Instantiate(linePrefab, parentObj.transform.GetChild(0).transform);
                     RectTransform lineRect = lineObj.GetComponent<RectTransform>();
 
                     Vector2 center = (posA + posB) * 0.5f;
@@ -206,4 +222,31 @@ public class MapGenerator : MonoBehaviour
             }
         }
     }
+
+    public void SelectNode(StageNode node)
+    {
+        currentNode = node;
+
+        foreach (List<StageNode> floor in floors)
+        {
+            foreach (StageNode next in floor)
+            {
+                MapNodeUI ui = next.uiObj.GetComponent<MapNodeUI>();
+
+                if (next ==   node)
+                {
+                    ui.SetState(NodeVisualState.Current);
+                }
+                else if ( node.nextNodes.Contains(next))
+                {
+                    ui.SetState(NodeVisualState.Selectable);
+                }
+                else
+                {
+                    ui.SetState(NodeVisualState.Locked);
+                }
+            }
+        }
+    }
+
 }

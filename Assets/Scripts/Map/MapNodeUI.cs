@@ -12,7 +12,7 @@ public enum NodeVisualState
 public class MapNodeUI : MonoBehaviour
 {
     [SerializeField] private Image background; // 노드 배경 이미지
-    [SerializeField] private TextMeshPro typeText;    // 타입 표시용 텍스트
+    [SerializeField] private TextMeshProUGUI typeText;    // 타입 표시용 텍스트
     [SerializeField] private Button button;    // 클릭 버튼
 
     private MapGenerator map;
@@ -23,6 +23,8 @@ public class MapNodeUI : MonoBehaviour
     {
         if (button == null)
             button = GetComponent<Button>();
+
+        button.onClick.AddListener(OnNodeClick);
     }
 
     public void Setup(MapGenerator map, StageNode node)
@@ -65,4 +67,38 @@ public class MapNodeUI : MonoBehaviour
                 break;
         }
     }
+    private void OnNodeClick()
+    {
+        // 현재 노드 or 선택 가능한 노드만 이동 허용
+        if (state == NodeVisualState.Selectable || node.floor == 0)
+        {
+            map.SelectNode(node);
+        }
+
+        switch (node.type)
+        {
+            case NodeType.Enemy:
+                map.gameObject.SetActive(false);
+                SceneChanger.Instance.OnStageScene(node.type);
+                break;
+            case NodeType.Shop:
+                map.gameObject.SetActive(false);
+                SceneChanger.Instance.OnStageScene(node.type);
+                break;
+            case NodeType.Rest:
+                map.gameObject.SetActive(false);
+                SceneChanger.Instance.OnStageScene(node.type);
+                break;
+            case NodeType.Boss:
+                map.gameObject.SetActive(false);
+                SceneChanger.Instance.OnStageScene(node.type);
+                break;
+            case NodeType.Event:
+                map.gameObject.SetActive(false);
+                SceneChanger.Instance.OnStageScene(node.type);
+                break;
+        }
+    }
+
+    
 }
