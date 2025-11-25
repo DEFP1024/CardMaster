@@ -17,6 +17,9 @@ public class CardData : ScriptableObject, ICard
     [SerializeField] private int power;
     [Tooltip("카드 설명")]
     [SerializeField] private string description;
+    [Tooltip("카드 이미지")]
+    [SerializeField] private Sprite cardImage;
+
 
     public int ID => id;
 
@@ -29,4 +32,7 @@ public class CardData : ScriptableObject, ICard
     public string Description => description;
 
     public CardType Type => cardType;
+
+    public Sprite CardImage => cardImage;
+
 }

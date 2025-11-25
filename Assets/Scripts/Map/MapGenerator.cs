@@ -235,18 +235,22 @@ public class MapGenerator : Singleton<MapGenerator>
 
                 if (next ==   node)
                 {
-                    ui.SetState(NodeVisualState.Current);
+                    ui.SetState(NodeState.Current);
                 }
                 else if ( node.nextNodes.Contains(next))
                 {
-                    ui.SetState(NodeVisualState.Selectable);
+                    ui.SetState(NodeState.Selectable);
                 }
                 else
                 {
-                    ui.SetState(NodeVisualState.Locked);
+                    ui.SetState(NodeState.Locked);
                 }
             }
         }
     }
 
+    public void MapClear()
+    {
+        floors.Clear();
+    }
 }

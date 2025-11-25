@@ -10,7 +10,7 @@ public class CardStockManager : Singleton<CardStockManager>
 
     [SerializeField] private Transform poolParent;
 
-    private List<CardObj> deck = new List<CardObj>();
+    public List<CardObj> deck = new List<CardObj>();
 
     private GameObject cardPrefab;
 
@@ -51,6 +51,7 @@ public class CardStockManager : Singleton<CardStockManager>
         {
             if (card.gameObject.activeSelf == false && card.Data == target.Data)
             {
+                card.gameObject.SetActive(true);
                 return card;
             }
         }
@@ -65,10 +66,6 @@ public class CardStockManager : Singleton<CardStockManager>
 
         card.transform.SetParent(poolParent, false);
         card.gameObject.SetActive(false);
-        
-        //if (currentCount >= maxCard) return;
-
-        //deck.Add(card);
     }
 
     public int GetRemainCount(CardObj card)

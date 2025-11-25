@@ -218,8 +218,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: SkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillSkillS
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 863a5c2c51d0a3b44bb29466f0d650ef, type: 2}
+  m_sharedMaterial: {fileID: 7077948465122862795, guid: 863a5c2c51d0a3b44bb29466f0d650ef, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -450,6 +450,7 @@ GameObject:
   - component: {fileID: 569294790602879176}
   - component: {fileID: 2451632406258633173}
   - component: {fileID: 1540290289302166671}
+  - component: {fileID: -8793677047867983854}
   m_Layer: 5
   m_Name: CardBase
   m_TagString: Untagged
@@ -467,7 +468,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.085, y: 0.25, z: 0.25}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2015384085525474506}
   - {fileID: 5302462041312374331}
@@ -520,6 +521,24 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &-8793677047867983854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6021029312794978165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c86f820c1c7430459f1e90d669ac846, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CardObj
+  cardData: {fileID: 0}
+  image: {fileID: 7610143112724596905}
+  typeText: {fileID: 2641972025891507310}
+  desText: {fileID: 1443639744875361204}
+  costText: {fileID: 7077436735449771084}
+  nameText: {fileID: 6321759095761573781}
 --- !u!1 &6764565249139268414
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,8 +606,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 3
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 863a5c2c51d0a3b44bb29466f0d650ef, type: 2}
+  m_sharedMaterial: {fileID: 7077948465122862795, guid: 863a5c2c51d0a3b44bb29466f0d650ef, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -723,8 +742,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Card Name
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 863a5c2c51d0a3b44bb29466f0d650ef, type: 2}
+  m_sharedMaterial: {fileID: 7077948465122862795, guid: 863a5c2c51d0a3b44bb29466f0d650ef, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -754,7 +773,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -932,10 +951,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Skill
+  m_text: Attack
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 863a5c2c51d0a3b44bb29466f0d650ef, type: 2}
+  m_sharedMaterial: {fileID: 7077948465122862795, guid: 863a5c2c51d0a3b44bb29466f0d650ef, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -959,13 +978,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 12
-  m_fontSizeBase: 12
+  m_fontSize: 10
+  m_fontSizeBase: 10
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535

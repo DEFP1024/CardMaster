@@ -6,4 +6,6 @@ public interface IPlayer
     public int AP {  get; }
     public int Money { get; }
     public int Armor { get; }
+
+    public int Draw {  get; }
 }

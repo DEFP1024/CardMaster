@@ -2,15 +2,31 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] PlayerData playerData;
+
+    private int hp;
+    private int ap;
+    private int money;
+    private int armor;
+    private int draw;
+
+    public int Hp => hp;
+    public int AP => ap;
+    public int Money => money;
+    public int Armor => armor;
+    public int Draw => draw;
+
+    private void Awake()
     {
-        
+        LoadData();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void LoadData()
     {
-        
+        hp = playerData.Hp;
+        ap = playerData.AP;
+        money = playerData.Money;
+        armor = playerData.Armor;
+        draw = playerData.Draw;
     }
 }

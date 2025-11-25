@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum NodeVisualState
+public enum NodeState
 {
     Locked,
     Selectable,
@@ -17,7 +17,7 @@ public class MapNodeUI : MonoBehaviour
 
     private MapGenerator map;
     private StageNode node;
-    private NodeVisualState state;
+    private NodeState state;
 
     void Awake()
     {
@@ -35,31 +35,31 @@ public class MapNodeUI : MonoBehaviour
         if (typeText != null)
             typeText.text = node.type.ToString();
 
-        // 기본 상태 (나중에 전체 갱신하면서 바뀜)
-        SetState(NodeVisualState.Locked);
+        // 기본 상태
+        SetState(NodeState.Locked);
     }
 
-    public void SetState(NodeVisualState newState)
+    public void SetState(NodeState newState)
     {
         state = newState;
 
         switch (state)
         {
-            case NodeVisualState.Locked:
+            case NodeState.Locked:
                 if (background != null)
                     background.color = Color.gray;
                 if (button != null)
                     button.interactable = false;
                 break;
 
-            case NodeVisualState.Selectable:
+            case NodeState.Selectable:
                 if (background != null)
                     background.color = Color.white;
                 if (button != null)
                     button.interactable = true;
                 break;
 
-            case NodeVisualState.Current:
+            case NodeState.Current:
                 if (background != null)
                     background.color = Color.yellow;
                 if (button != null)
@@ -69,8 +69,8 @@ public class MapNodeUI : MonoBehaviour
     }
     private void OnNodeClick()
     {
-        // 현재 노드 or 선택 가능한 노드만 이동 허용
-        if (state == NodeVisualState.Selectable || node.floor == 0)
+        // 현재 노드 or 이동 가능한 노드만 선택 허용
+        if (state == NodeState.Selectable || node.floor == 0)
         {
             map.SelectNode(node);
         }
