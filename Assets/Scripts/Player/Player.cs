@@ -11,10 +11,12 @@ public class Player : MonoBehaviour
     private int draw;
 
     public int Hp => hp;
+    public int MaxAP => ap;
     public int AP => ap;
     public int Money => money;
     public int Armor => armor;
     public int Draw => draw;
+    
 
     private void Awake()
     {
