@@ -23,7 +23,7 @@ public class CardObj : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
     public bool InHand { get; set; } = false;
 
     private Vector3 originalScale;
-    private float plusScale = 1.2f;
+    private float plusScale = 2f;
 
     private int originalSortingOrder;
 
