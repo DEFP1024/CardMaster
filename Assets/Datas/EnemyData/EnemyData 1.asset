@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: EnemyData 1
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   hp: 100
-  dmage: 2
+  dmage: 5
   skillPower: 0
   armorPower: 5
   armor: 0
   bufftype: 0
   debuffType: 0
   action: 000000000200000000000000
+  monsterType: 0

@@ -69,8 +69,11 @@ public class MapNodeUI : MonoBehaviour
     }
     private void OnNodeClick()
     {
+        if (state == NodeState.Locked || state == NodeState.Current)
+            return;
+
         // 현재 노드 or 이동 가능한 노드만 선택 허용
-        if (state == NodeState.Selectable || node.floor == 0)
+        if (state == NodeState.Selectable || node.floor == 0 )
         {
             map.SelectNode(node);
         }

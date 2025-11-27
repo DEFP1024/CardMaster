@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EnemyData
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   hp: 50
-  dmage: 50
+  dmage: 10
   skillPower: 0
   armorPower: 0
   armor: 0

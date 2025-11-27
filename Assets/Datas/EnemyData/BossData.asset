@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6cb656b376131e341a7afba31b230b7b, type: 3}
-  m_Name: EnemyData 2
+  m_Name: BossData
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   hp: 250
-  dmage: 8
+  dmage: 20
   skillPower: 0
   armorPower: 5
   armor: 0

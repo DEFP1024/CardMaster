@@ -61,6 +61,8 @@ public class PlayerUI : MonoBehaviour
 
     private void UpdateArmorUI(int currentArmor)
     {
+        if (armor ==  null)
+            return;
         armor.text = currentArmor.ToString();
     }
 }
