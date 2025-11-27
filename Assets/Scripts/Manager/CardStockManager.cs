@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class CardStockManager : Singleton<CardStockManager>
@@ -38,8 +37,6 @@ public class CardStockManager : Singleton<CardStockManager>
                 deck.Add(inst);
             }
         }
-
-        Debug.Log($"카드 풀 생성 완료. 총 인스턴스 수: {deck.Count}");
     }
 
     public CardObj TryTakeCard(CardObj target)
@@ -49,9 +46,9 @@ public class CardStockManager : Singleton<CardStockManager>
 
         foreach (var card in deck)
         {
-            if (card.gameObject.activeSelf == false && card.Data == target.Data)
+            if (card.Data == target.Data && card.transform.parent == poolParent)
             {
-                card.gameObject.SetActive(true);
+                //card.gameObject.SetActive(true);
                 return card;
             }
         }
@@ -85,5 +82,13 @@ public class CardStockManager : Singleton<CardStockManager>
         }    
 
         return cnt;
+    }
+
+    public bool HasCard (CardObj card)
+    {
+        if (card == null)
+            return false;
+
+        return GetRemainCount(card) > 0;
     }
 }

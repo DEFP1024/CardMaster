@@ -9,16 +9,23 @@ public class PlayerHand : MonoBehaviour
     [SerializeField] private PlayerData player;
     [SerializeField] private int maxHandCard;
 
-    private List<CardObj> playerCards = new List<CardObj>();
 
     private void Start()
     {
+        
+        SetUp();
+    }
+
+    public void SetUp()
+    {
+        HandManager.Instance.SetUpHand();
+        player = GameManager.Instance.Player.PlayerData;
         StartDraw();
     }
 
     public void StartDraw()
     {
-        for (int i = 0; i < drawCount; i++)
+        for (int i = 0; i < player.Draw; i++)
         {
             CardDraw();
         }
@@ -26,29 +33,16 @@ public class PlayerHand : MonoBehaviour
 
     public void CardDraw()
     {
-        if (playerCards.Count == maxHandCard)
+        if (HandManager.Instance.HandCards.Count >= maxHandCard)
             return;
 
-            playerCards.Add(playerDeck.DrawCard());
+        CardObj card = playerDeck.DrawCard();
 
-    }
+        if (card == null)
+            return;
 
-    public void Endturn()
-    {
-        foreach (var card in playerCards)
-        {
-            MoveGrave(card);
-        }
-    }
+        card.gameObject.SetActive(true);
 
-    private void MoveGrave(CardObj card)
-    {
-        card.transform.SetParent(GraveParent, false);
-        playerCards.Remove(card);
-    }
-
-    public void UseCard(CardObj card)
-    {
-        MoveGrave(card);
+        HandManager.Instance.AddHand(card);
     }
 }

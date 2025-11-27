@@ -1,10 +1,9 @@
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class CardObj : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class CardObj : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     [SerializeField] private CardData cardData;
     [SerializeField] private Image image;
@@ -15,6 +14,8 @@ public class CardObj : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     [SerializeField] private Image highlightImage;
 
+    [SerializeField ]private Canvas canvas;
+
     public CardData Data => cardData;
 
     public int Cost => cardData.Cost;
@@ -24,11 +25,24 @@ public class CardObj : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private Vector3 originalScale;
     private float plusScale = 1.2f;
 
+    private int originalSortingOrder;
+
     private void Awake()
     {
         originalScale = transform.localScale;
         DataToUI();
-        highlightImage.enabled = false;
+
+        if (canvas == null)
+            canvas = GetComponent<Canvas>();
+
+        if (highlightImage != null)
+            highlightImage.enabled = false;
+
+        if (canvas != null)
+        {
+            originalSortingOrder = canvas.sortingOrder;
+            canvas.overrideSorting = true;
+        }
     }
 
     public void DataToUI()
@@ -52,39 +66,66 @@ public class CardObj : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         if (InHand == false)
             return;
 
+        canvas.sortingOrder = 500;
+
         transform.localScale = originalScale * plusScale;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (InHand)
+        if (InHand == false)
             return;
 
+        ResetScale();
+    }
+
+    public void ResetScale()
+    {
+        canvas.sortingOrder = originalSortingOrder;
         transform.localScale = originalScale;
     }
 
     public void UpdateHighlight(int currentAP)
     {
-        if (InHand == false)
-        {
-            if (highlightImage != null)
-                highlightImage.enabled = false;
-
-            else
-            {
-                var img = highlightImage.GetComponent<Image>();
-                if (img != null)
-                    img.color = Color.springGreen;
-            }
-
+        if (highlightImage == null)
             return;
+
+
+            if (InHand == false)
+        {
+             highlightImage.enabled = false;
+             return;
         }
 
         bool canPlay = Cost <= currentAP;
+         highlightImage.enabled = canPlay;
+    }
 
+    public void RemoveHighlight()
+    {
         if (highlightImage != null)
+            highlightImage.enabled = false;
+    }
+    public void OnClickPlayCard()
+    {
+        var data = Data;
+
+        if (data.CardTarget == CardTaget.Enemy)
         {
-            highlightImage.enabled = true;
+            CardTargetManager.Instance.StartEnemyTargeting(this);
         }
+
+        else
+        {
+            GameManager.Instance.TryPlayCard(this);
+        }
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (eventData.button != PointerEventData.InputButton.Left)
+            return;
+
+        OnClickPlayCard();
     }
 }

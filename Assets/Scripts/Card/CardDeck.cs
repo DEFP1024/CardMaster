@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CardDeck : Singleton<CardDeck>
@@ -6,6 +7,8 @@ public class CardDeck : Singleton<CardDeck>
     [SerializeField] private CardList cardList;
 
     private List<CardObj> deckCards = new List<CardObj>();
+
+    public bool StartComplete = false;
 
     protected override void Awake()
     {
@@ -44,6 +47,18 @@ public class CardDeck : Singleton<CardDeck>
 
         deckCards.Remove(selectedCard);
         CardStockManager.Instance.ReturnCard(selectedCard);
+    }
+
+    public void DeckReturnCard(CardObj card)
+    {
+        card.InHand = false;
+        card.RemoveHighlight();
+
+        card.transform.SetParent(transform, false);
+        card.gameObject.SetActive(false);
+
+        if (deckCards.Contains(card) == false)
+            deckCards.Add(card);
     }
 
     public List<CardObj> GetCards()

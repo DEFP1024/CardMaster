@@ -13,5 +13,8 @@ MonoBehaviour:
   m_Name: CardList
   m_EditorClassIdentifier: Assembly-CSharp::CardList
   cards:
-  - {fileID: 3563911899327746350, guid: 0a6883bdc06e5f54fab5ce87f1c3dea6, type: 3}
-  - {fileID: 2218297923336844737, guid: b13cb8dc88c5c2b49acf03c167fa2830, type: 3}
+  - {fileID: 7102147359249906249, guid: f0298ee33a9f28d40bb7d2018e1ad5cc, type: 3}
+  - {fileID: 7102147359249906249, guid: a2d4c61d6863b7f4fa08abaab9cfa2cc, type: 3}
+  - {fileID: 7102147359249906249, guid: 3f80cde9c116bd540a32bae3e42f67a0, type: 3}
+  - {fileID: 7102147359249906249, guid: 85a2061a22f907c479bcf404d51b62e2, type: 3}
+  - {fileID: 7102147359249906249, guid: 7147de75c467bf94eae60b23e1a2b41c, type: 3}

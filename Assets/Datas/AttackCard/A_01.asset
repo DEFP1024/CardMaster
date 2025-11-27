@@ -18,3 +18,7 @@ MonoBehaviour:
   cost: 1
   power: 10
   description: "\uB2E8\uC77C \uC801\uC5D0\uAC8C 10 \uD53C\uD574\uB97C \uC900\uB2E4"
+  cardImage: {fileID: 0}
+  cardTaget: 3
+  buffType: 0
+  debuffType: 0

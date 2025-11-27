@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cb656b376131e341a7afba31b230b7b, type: 3}
+  m_Name: EnemyData 2
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyData
+  hp: 250
+  dmage: 8
+  skillPower: 0
+  armorPower: 5
+  armor: 0
+  bufftype: 0
+  debuffType: 0
+  action: 000000000200000000000000
+  monsterType: 1

@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "CardData", menuName = "Scriptable Objects/CardData")]
-public class CardData : ScriptableObject, ICard
+public class CardData : ScriptableObject, ICard, IBuff, IDebuff
 {
     [Header("기본 정보")]
     [Tooltip("고유 번호")]
@@ -19,7 +19,10 @@ public class CardData : ScriptableObject, ICard
     [SerializeField] private string description;
     [Tooltip("카드 이미지")]
     [SerializeField] private Sprite cardImage;
-
+    [Tooltip("카드가 사용될 오브젝트")]
+    [SerializeField] private CardTaget cardTaget;
+    [SerializeField] private BuffType buffType;
+    [SerializeField] private DebuffType debuffType;
 
     public int ID => id;
 
@@ -33,6 +36,11 @@ public class CardData : ScriptableObject, ICard
 
     public CardType Type => cardType;
 
+    public CardTaget CardTarget => cardTaget;
+
     public Sprite CardImage => cardImage;
 
+    public BuffType _BuffType => buffType;
+
+    public DebuffType _DeBuffType => debuffType;
 }
